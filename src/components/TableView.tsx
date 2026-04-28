@@ -4,6 +4,8 @@ import {
     extractColumns,
     detectOrientation
 } from "../lib/tableCompability.ts";
+
+import { JSONToCSV, downloadCSV } from "../lib/jsonToCsv.ts"
 import {useMemo} from "react";
 
 interface TableViewProps {
@@ -101,6 +103,10 @@ export default function TableView({input}: TableViewProps) {
                 <button
                     type="button"
                     className="rounded-md border border-(--border) bg-transparent px-3 py-1.5 text-[12px] text-(--text-muted) font-(--font-sans) opacity-75 cursor-pointer transition-[color,border-color] duration-150 ease-in-out hover:text-(--text) hover:border-(--accent)"
+                    onClick={() => {
+                        const csv = JSONToCSV(resolvedData);
+                        downloadCSV(csv, "data.csv");
+                    }}
                 >
                     Export CSV
                 </button>
