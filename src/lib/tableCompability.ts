@@ -6,9 +6,12 @@ function isColumnOriented(data: unknown): boolean {
   const values = Object.values(data as Record<string, unknown>);
   if (values.length === 0) return false;
 
-  return values.every(
-    (v) => typeof v === "object" && v !== null && !Array.isArray(v),
-  );
+  return values.every((v) => {
+    if (typeof v !== "object" || v === null || Array.isArray(v)) return false;
+
+    const keys = Object.keys(v as object);
+    return keys.length > 0 && keys.every((k) => /^\d+$/.test(k));
+  });
 }
 
 function transposeToRows(
