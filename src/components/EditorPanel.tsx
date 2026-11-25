@@ -15,7 +15,7 @@ export function EditorPanel({
   onAnalyze,
   onInputChange,
 }: EditorPanelProps) {
-  const panelStateClass = isValid ? "border-l-[var(--accent)]" : "border-l-[#c0392b]";
+  const panelStateClass = isValid ? "border-l-[var(--accent)]" : "border-l-[var(--accent-warn)]";
   const textAreaBottomPadding = !isValid && error ? "pb-14" : "pb-5";
 
   return (
@@ -51,7 +51,7 @@ export function EditorPanel({
       </div>
 
       {!isValid && error ? (
-        <div className="absolute left-0 right-0 bottom-0 bg-[#fdf0ee] border-t border-[#e5c5c0] px-4 py-2.5 text-[12px] text-[#c0392b] font-[var(--font-mono)]">
+        <div className="absolute left-0 right-0 bottom-0 bg-[var(--bg-warn)] border-t border-[var(--border)] px-4 py-2.5 text-[12px] text-[var(--accent-warn)] font-[var(--font-mono)]">
           {error}
         </div>
       ) : null}

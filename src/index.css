@@ -1,35 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
 
 :root {
-  --text: #2D2926;
-  --text-muted: #6B6560;
-  --text-h: #08060d;
-  --bg: #FFF8F0;
-  --border: #e5e4e7;
-  --accent: #C08552;
-  --accent-bg: #4B2E2B;
-  --accent-border: #8C5A3C;
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    --text: #0f172a;
+    --text-muted: #334155;
+    --text-h: #0f172a;
+    --bg: #ffffff;
+    --border: #dbeafe;
+    --accent: #3b82f6;
+    --accent-bg: #dbeafe;
+    --accent-border: #3b82f6;
+    --social-bg: rgba(219, 234, 254, 0.55);
+    --shadow:
+        rgba(15, 23, 42, 0.1) 0 10px 15px -3px,
+        rgba(15, 23, 42, 0.05) 0 4px 6px -2px;
 
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-sans: 'Inter', sans-serif;
-  --bg-base: #fff8f0;
-  --bg-panel: #f9f2ea;
-  --bg-surface: #fffdf9;
-  --text-primary: #08060d;
-  --accent-warn: #b7791f;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', sans-serif;
+    --bg-base: #ffffff;
+    --bg-panel: #f8fafc;
+    --bg-surface: #ffffff;
+    --text-primary: #0f172a;
+    --accent-warn: #ef4444;
+    --bg-warn: rgba(239, 68, 68, 0.08);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

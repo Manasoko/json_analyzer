@@ -52,14 +52,14 @@ export default function AnalysisPanel({
         ) : (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
-              <article className="rounded-lg border border-(--border) bg-(--bg-surface) p-4">
+              <article className="rounded-lg border border-(--border) bg-(--social-bg) p-4">
                 <p className="m-0 uppercase tracking-widest text-[11px] text-(--text-muted) font-(--font-sans)">
                   Depth
                 </p>
-                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text-primary) font-(--font-mono)">
+                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text) font-(--font-mono)">
                   {analysis.depth}
                 </p>
-                <div className="mt-3 h-1.5 w-full rounded-full bg-(--bg-panel)">
+                <div className="mt-3 h-1.5 w-full rounded-full bg-(--bg)">
                   <div
                     className="h-full rounded-full bg-(--accent)"
                     style={{ width: `${depthRatio}%` }}
@@ -67,29 +67,29 @@ export default function AnalysisPanel({
                 </div>
               </article>
 
-              <article className="rounded-lg border border-(--border) bg-(--bg-surface) p-4">
+              <article className="rounded-lg border border-(--border) bg-(--social-bg) p-4">
                 <p className="m-0 uppercase tracking-widest text-[11px] text-(--text-muted) font-(--font-sans)">
                   Total Keys
                 </p>
-                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text-primary) font-(--font-mono)">
+                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text) font-(--font-mono)">
                   {analysis.keyCount}
                 </p>
               </article>
 
-              <article className="rounded-lg border border-(--border) bg-(--bg-surface) p-4">
+              <article className="rounded-lg border border-(--border) bg-(--social-bg) p-4">
                 <p className="m-0 uppercase tracking-widest text-[11px] text-(--text-muted) font-(--font-sans)">
                   Total Nodes
                 </p>
-                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text-primary) font-(--font-mono)">
+                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text) font-(--font-mono)">
                   {analysis.nodes}
                 </p>
               </article>
 
-              <article className="rounded-lg border border-(--border) bg-(--bg-surface) p-4">
+              <article className="rounded-lg border border-(--border) bg-(--social-bg) p-4">
                 <p className="m-0 uppercase tracking-widest text-[11px] text-(--text-muted) font-(--font-sans)">
                   Size (KB)
                 </p>
-                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text-primary) font-(--font-mono)">
+                <p className="mt-2 mb-0 text-[28px] leading-none text-(--text) font-(--font-mono)">
                   {sizeKb}
                 </p>
               </article>
@@ -103,14 +103,14 @@ export default function AnalysisPanel({
                 {typeEntries.map(([type, count]) => (
                   <div
                     key={type}
-                    className="rounded-full border border-(--border) bg-(--bg-surface) px-3 py-1 text-[12px] font-(--font-mono)"
+                    className="rounded-full border border-(--border) bg-(--social-bg) px-3 py-1 text-[12px] font-(--font-mono)"
                   >
                     <span className="text-(--text-muted)">{type}</span>
                     <span className="ml-1 text-(--accent)">x {count}</span>
                   </div>
                 ))}
                 {totalTypedValues === 0 ? (
-                  <div className="rounded-full border border-(--border) bg-(--bg-surface) px-3 py-1 text-[12px] font-(--font-mono) text-(--text-muted)">
+                  <div className="rounded-full border border-(--border) bg-(--social-bg) px-3 py-1 text-[12px] font-(--font-mono) text-(--text-muted)">
                     no values
                   </div>
                 ) : null}
@@ -131,7 +131,7 @@ export default function AnalysisPanel({
             ) : null}
 
             <section className="rounded-lg border border-(--border) overflow-hidden">
-              <pre className="m-0 max-h-[340px] overflow-auto bg-(--bg-surface) p-4 text-[13px] leading-6 text-(--text-primary) font-(--font-mono)">
+              <pre className="m-0 max-h-[340px] overflow-auto bg-(--social-bg) p-4 text-[13px] leading-6 text-(--text) font-(--font-mono)">
                 {analysis.formatted}
               </pre>
             </section>
