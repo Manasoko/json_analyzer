@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+# JSON Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based JSON analysis tool for validating JSON, inspecting its structure, and exporting tabular data as CSV.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwindcss&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Live JSON validation with automatic analysis
+- Syntax error and input-size feedback
+- Depth, key, node, and size metrics
+- Data type summary
+- Detection of duplicate keys and deeply nested structures
+- Formatted JSON preview
+- Table view for compatible arrays and objects
+- CSV export
+- Responsive split-panel interface
+- Slate Blue visual theme
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 20 or newer
+- npm
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <your-repository-url>
+cd json_analyzer
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open the local URL printed by Vite.
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Type-check and create a production build |
+| `npm run lint` | Run ESLint |
+| `npm run preview` | Preview the production build locally |
+
+## How It Works
+
+Paste JSON into the editor. The application analyzes input automatically after a short delay or immediately when **Analyze** is selected.
+
+The analysis panel reports:
+
+- Maximum nesting depth
+- Number of keys
+- Number of nodes
+- Input size in kilobytes
+- Counts for strings, numbers, booleans, nulls, objects, and arrays
+- Deep branch and duplicate-key warnings
+
+JSON is accepted up to 1 MB. Traversal is capped at 100 levels to keep the browser responsive.
+
+## Table View
+
+Switch to **Table View** for JSON structures that can be represented as tabular records. Compatible data is displayed by row and column, with CSV export available through **Export CSV**.
+
+## Technology
+
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS 4
+- ESLint
+
+## Project Structure
+
+```text
+src/
+  components/
+    Analysis.tsx       # Analysis/table tab container
+    AnalysisPanel.tsx  # JSON metrics and formatted preview
+    EditorPanel.tsx    # JSON input editor
+    Navbar.tsx         # Application header
+    TableView.tsx      # Tabular JSON view and CSV export
+  lib/
+    analyzer.ts        # JSON validation and structural analysis
+    checkDuplicate.ts  # Duplicate-key detection
+    jsonToCsv.ts       # CSV conversion and download
+    tableCompability.ts # Table compatibility and data extraction
+  App.tsx              # Application state and layout
+  index.css            # Theme and global styles
+  main.tsx             # React entry point
 ```
